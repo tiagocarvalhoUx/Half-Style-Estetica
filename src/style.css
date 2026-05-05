@@ -29,6 +29,9 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -36,6 +39,32 @@ body {
   color: var(--ink);
   background: #f7f1eb;
   line-height: 1.55;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#app,
+main,
+header,
+footer,
+section {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 a {
@@ -391,6 +420,7 @@ p {
 
 .procedure-carousel {
   position: relative;
+  max-width: 100%;
   min-height: 620px;
   overflow: hidden;
   border-radius: 18px;
@@ -546,7 +576,8 @@ p {
 @media (max-width: 760px) {
   .procedure-carousel {
     min-height: 570px;
-    overflow: visible;
+    overflow: hidden;
+    border-radius: 14px;
   }
 
   .procedure-carousel::before,
@@ -560,9 +591,9 @@ p {
 
   .carousel-card {
     top: 20px;
-    width: min(86vw, 350px);
+    width: min(82vw, 330px);
     min-height: 470px;
-    margin-left: calc(min(86vw, 350px) / -2);
+    margin-left: calc(min(82vw, 330px) / -2);
   }
 
   .carousel-control {
