@@ -14,8 +14,10 @@ import TestimonialsSection from "./components/TestimonialsSection.vue";
   <SiteHeader />
   <main id="top">
     <HeroSection />
-    <AboutSection />
-    <ProceduresCarousel />
+    <div class="emerald-story-band">
+      <ProceduresCarousel />
+      <AboutSection />
+    </div>
     <ProcedureDetails />
     <TestimonialsSection />
     <PricingSection />

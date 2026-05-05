@@ -19,14 +19,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="bg-gradient-to-b from-[#fbf7f2] to-[#f3ebe4] px-5 py-20 lg:px-20 lg:py-28" id="depoimentos">
+  <section class="testimonials-section px-5 py-20 lg:px-20 lg:py-28" id="depoimentos">
     <div class="mx-auto mb-9 max-w-4xl text-center">
       <p class="eyebrow">O que nossas clientes dizem</p>
-      <h2 class="section-title">Prova social com espaco para fotos reais das clientes.</h2>
+      <h2 class="section-title">Prova social com espaço para fotos reais das clientes.</h2>
     </div>
 
     <div class="mx-auto grid max-w-6xl items-center gap-4 sm:grid-cols-[46px_1fr_46px]">
-      <button class="hidden h-12 w-12 rounded-lg border border-[#e8ddd7] bg-ivory font-black text-plum sm:block" type="button" aria-label="Depoimento anterior" @click="prevTestimonial">&lt;</button>
+      <button class="testimonial-arrow hidden sm:grid" type="button" aria-label="Depoimento anterior" @click="prevTestimonial">&lt;</button>
       <article class="testimonial-card luxe-panel">
         <div class="testimonial-photo">
           <img :src="currentTestimonial.imageSrc" :alt="currentTestimonial.imageAlt" loading="lazy">
@@ -41,7 +41,7 @@ onMounted(() => {
           </cite>
         </div>
       </article>
-      <button class="hidden h-12 w-12 rounded-lg border border-[#e8ddd7] bg-ivory font-black text-plum sm:block" type="button" aria-label="Proximo depoimento" @click="nextTestimonial">&gt;</button>
+      <button class="testimonial-arrow hidden sm:grid" type="button" aria-label="Próximo depoimento" @click="nextTestimonial">&gt;</button>
     </div>
 
     <div class="mx-auto mt-5 flex max-w-4xl justify-center gap-3" aria-label="Selecionar depoimento">

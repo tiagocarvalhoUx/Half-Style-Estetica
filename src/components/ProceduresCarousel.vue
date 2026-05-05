@@ -1,27 +1,64 @@
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { categories, procedures } from "../data/siteData";
+import { computed, onMounted, onUnmounted, ref } from "vue";
+import {
+  emeraldTreatmentAdvanced,
+  emeraldTreatmentBody,
+  emeraldTreatmentFacial,
+  emeraldTreatmentHomecare
+} from "../assets";
 
-const procedureIndex = ref(0);
+const treatmentCards = [
+  {
+    title: "Faciais",
+    text: "Pele saudável, luminosa e revitalizada.",
+    image: emeraldTreatmentFacial,
+    alt: "Tratamento facial relaxante com pele luminosa.",
+    href: "#limpeza-facial"
+  },
+  {
+    title: "Corporais",
+    text: "Modelagem, firmeza e bem-estar.",
+    image: emeraldTreatmentBody,
+    alt: "Tratamento corporal estético.",
+    href: "#laser"
+  },
+  {
+    title: "Avançados",
+    text: "Tecnologia e inovação para resultados visíveis.",
+    image: emeraldTreatmentAdvanced,
+    alt: "Tecnologia estética aplicada ao rosto.",
+    href: "#fototerapia"
+  },
+  {
+    title: "Home Care",
+    text: "Cuidados diários que prolongam resultados.",
+    image: emeraldTreatmentHomecare,
+    alt: "Produtos de cuidado facial premium.",
+    href: "#mascara"
+  }
+];
+
+const activeIndex = ref(0);
 const dragStartX = ref(null);
+let autoplayId;
 
-const currentProcedure = computed(() => procedures[procedureIndex.value]);
+const activeTreatment = computed(() => treatmentCards[activeIndex.value]);
 
-function nextProcedure() {
-  procedureIndex.value = (procedureIndex.value + 1) % procedures.length;
+function nextTreatment() {
+  activeIndex.value = (activeIndex.value + 1) % treatmentCards.length;
 }
 
-function prevProcedure() {
-  procedureIndex.value = (procedureIndex.value - 1 + procedures.length) % procedures.length;
+function prevTreatment() {
+  activeIndex.value = (activeIndex.value - 1 + treatmentCards.length) % treatmentCards.length;
 }
 
-function setProcedure(index) {
-  procedureIndex.value = index;
+function setTreatment(index) {
+  activeIndex.value = index;
 }
 
-function getCarouselOffset(index) {
-  const length = procedures.length;
-  let offset = index - procedureIndex.value;
+function getOffset(index) {
+  const length = treatmentCards.length;
+  let offset = index - activeIndex.value;
 
   if (offset > length / 2) offset -= length;
   if (offset < -length / 2) offset += length;
@@ -29,115 +66,126 @@ function getCarouselOffset(index) {
   return offset;
 }
 
-function procedureCardStyle(index) {
-  const offset = getCarouselOffset(index);
+function cardStyle(index) {
+  const offset = getOffset(index);
   const abs = Math.abs(offset);
   const visible = abs <= 2;
-  const x = offset * 34;
-  const rotate = offset * -9;
-  const scale = 1 - abs * 0.09;
-  const y = abs * 16;
+  const x = offset * 42;
+  const rotate = offset * -11;
+  const scale = 1 - abs * 0.08;
+  const y = abs * 20;
 
   return {
-    transform: `translateX(${x}%) translateY(${y}px) translateZ(${-abs * 90}px) rotateY(${rotate}deg) scale(${scale})`,
-    opacity: visible ? 1 - abs * 0.18 : 0,
-    zIndex: 30 - abs,
+    transform: `translateX(${x}%) translateY(${y}px) translateZ(${-abs * 120}px) rotateY(${rotate}deg) scale(${scale})`,
+    opacity: visible ? 1 - abs * 0.2 : 0,
+    zIndex: 40 - abs,
     pointerEvents: visible ? "auto" : "none"
   };
 }
 
-function startProcedureDrag(event) {
+function startDrag(event) {
   dragStartX.value = event.touches ? event.touches[0].clientX : event.clientX;
 }
 
-function endProcedureDrag(event) {
+function endDrag(event) {
   if (dragStartX.value === null) return;
 
   const endX = event.changedTouches ? event.changedTouches[0].clientX : event.clientX;
   const delta = endX - dragStartX.value;
 
-  if (Math.abs(delta) > 44) {
-    delta < 0 ? nextProcedure() : prevProcedure();
+  if (Math.abs(delta) > 42) {
+    delta < 0 ? nextTreatment() : prevTreatment();
   }
 
   dragStartX.value = null;
 }
 
-function categoryLabel(categoryId) {
-  return categories.find((category) => category.id === categoryId)?.label;
-}
-
 onMounted(() => {
-  window.setInterval(nextProcedure, 2800);
+  autoplayId = window.setInterval(nextTreatment, 3600);
+});
+
+onUnmounted(() => {
+  window.clearInterval(autoplayId);
 });
 </script>
 
 <template>
-  <section class="bg-gradient-to-b from-[#fbf7f2] to-[#f3ebe4] px-5 py-20 lg:px-20 lg:py-28" id="procedimentos">
-    <div class="mx-auto mb-9 max-w-4xl text-center">
-      <p class="eyebrow">Nossos procedimentos premium</p>
-      <h2 class="section-title">Explore todos os tratamentos em uma experiencia imersiva.</h2>
-      <p class="mx-auto mt-5 max-w-3xl text-[#6f6268]">Arraste para os lados ou use os controles. O procedimento em destaque avanca na tela para facilitar comparacao e decisao de agendamento.</p>
-    </div>
+  <section class="treatments-panel" id="procedimentos">
+    <div class="treatments-inner">
+      <div class="treatments-copy">
+        <p class="section-kicker">Nossos tratamentos</p>
+        <h2>Cuidado que transforma.</h2>
+      </div>
 
-    <div
-      class="procedure-carousel mx-auto max-w-7xl"
-      role="region"
-      aria-label="Carrossel de procedimentos esteticos"
-      @mousedown="startProcedureDrag"
-      @mouseup="endProcedureDrag"
-      @mouseleave="dragStartX = null"
-      @touchstart.passive="startProcedureDrag"
-      @touchend="endProcedureDrag"
-    >
-      <button class="carousel-control left-0 lg:left-6" type="button" aria-label="Procedimento anterior" @click="prevProcedure">&lt;</button>
-
-      <div class="carousel-stage">
-        <article
-          v-for="(procedure, index) in procedures"
-          :key="procedure.id"
-          class="carousel-card luxe-card overflow-hidden"
-          :class="{ 'is-active': index === procedureIndex }"
-          :style="procedureCardStyle(index)"
-          @click="setProcedure(index)"
-        >
-          <div class="procedure-media">
-            <img :src="procedure.imageSrc" :alt="procedure.imageAlt" loading="lazy">
-            <span>{{ procedure.result }}</span>
-          </div>
-          <div class="p-5">
-            <p class="text-xs font-extrabold uppercase text-[#8f4657]">{{ categoryLabel(procedure.category) }}</p>
-            <h3 class="mt-2 text-2xl font-extrabold text-plum">{{ procedure.name }}</h3>
-            <p class="mt-1 text-[#6f6268]">{{ procedure.subtitle }}</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-md bg-[#f4eadc] px-3 py-1.5 text-xs font-extrabold text-[#5a3e22]">{{ procedure.price }}</span>
-              <span class="rounded-md bg-[#f4eadc] px-3 py-1.5 text-xs font-extrabold text-[#5a3e22]">{{ procedure.duration }}</span>
-            </div>
-            <a class="mt-4 inline-flex font-extrabold text-[#8f4657]" :href="'#' + procedure.id">+ Detalhes</a>
+      <div class="treatment-grid">
+        <article v-for="card in treatmentCards" :key="card.title" class="treatment-card">
+          <img :src="card.image" :alt="card.alt" loading="lazy">
+          <div>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text }}</p>
+            <a :href="card.href">
+              Saiba mais
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </article>
       </div>
 
-      <button class="carousel-control right-0 lg:right-6" type="button" aria-label="Proximo procedimento" @click="nextProcedure">&gt;</button>
-    </div>
+      <div
+        class="treatment-carousel-3d"
+        role="region"
+        aria-label="Carrossel de tratamentos"
+        @mousedown="startDrag"
+        @mouseup="endDrag"
+        @mouseleave="dragStartX = null"
+        @touchstart.passive="startDrag"
+        @touchend="endDrag"
+      >
+        <button class="treatment-control treatment-control-left" type="button" aria-label="Tratamento anterior" @click="prevTreatment">‹</button>
 
-    <div class="mx-auto mt-6 grid max-w-3xl gap-3 text-center">
-      <p class="text-sm font-extrabold uppercase text-[#8f4657]">{{ currentProcedure.name }}</p>
-      <div class="flex justify-center gap-2" aria-label="Indicadores do carrossel">
-        <button
-          v-for="(procedure, index) in procedures"
-          :key="procedure.id + '-dot'"
-          class="carousel-dot"
-          :class="{ 'is-active': index === procedureIndex }"
-          type="button"
-          :aria-label="`Ver ${procedure.name}`"
-          @click="setProcedure(index)"
-        ></button>
+        <div class="treatment-stage">
+          <article
+            v-for="(card, index) in treatmentCards"
+            :key="card.title"
+            class="treatment-card treatment-card-3d"
+            :class="{ 'is-active': index === activeIndex }"
+            :style="cardStyle(index)"
+            @click="setTreatment(index)"
+          >
+            <img :src="card.image" :alt="card.alt" loading="lazy">
+            <div>
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.text }}</p>
+              <a :href="card.href">
+                Saiba mais
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <button class="treatment-control treatment-control-right" type="button" aria-label="Próximo tratamento" @click="nextTreatment">›</button>
       </div>
-    </div>
 
-    <div class="mt-9 flex justify-center">
-      <a class="btn-primary" href="#detalhes">Ver detalhes de todos os procedimentos</a>
+      <div class="treatment-carousel-meta" aria-label="Indicadores do carrossel">
+        <p>{{ activeTreatment.title }}</p>
+        <div>
+          <button
+            v-for="(card, index) in treatmentCards"
+            :key="card.title + '-dot'"
+            class="carousel-dot"
+            :class="{ 'is-active': index === activeIndex }"
+            type="button"
+            :aria-label="`Ver ${card.title}`"
+            @click="setTreatment(index)"
+          ></button>
+        </div>
+      </div>
+
+      <a class="view-all-link" href="#detalhes">
+        Ver todos os tratamentos
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 </template>
