@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+
+vite-dev.log
+vite-dev.err.log
+
+PROMPT_LANDING_PAGE_HALF_STYLE_v2.md
