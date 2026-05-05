@@ -7,6 +7,9 @@ import vaporImage from "../image/06_limpeza_a_vapor_400x300.png";
 import massagemImage from "../image/07_massagem_facial_400x300.png";
 import mascaraImage from "../image/08_mascara_premium_400x300.png";
 import laserImage from "../image/09_depilacao_laser_400x300.png";
+import clienteMarinaImage from "../image/cliente_diversa_1.png";
+import clienteJulianaImage from "../image/cliente_diversa_2.png";
+import clienteBeatrizImage from "../image/cliente_3.png";
 
 export const navItems = [
   { label: "Sobre", href: "#sobre" },
@@ -153,15 +156,27 @@ export const procedures = [
 export const testimonials = [
   {
     text: "O microblading ficou delicado e muito natural. Gostei da explicacao antes do procedimento e do cuidado no acabamento.",
-    author: "Marina S. | SP"
+    author: "Marina S.",
+    location: "SP",
+    procedure: "Microblading",
+    imageSrc: clienteMarinaImage,
+    imageAlt: "Cliente Marina apos atendimento estetico."
   },
   {
     text: "Fiz limpeza facial e sai com a pele muito mais fresca. Atendimento organizado, ambiente confortavel e orientacoes claras.",
-    author: "Juliana P. | RJ"
+    author: "Juliana P.",
+    location: "RJ",
+    procedure: "Limpeza facial",
+    imageSrc: clienteJulianaImage,
+    imageAlt: "Cliente Juliana apos limpeza facial."
   },
   {
     text: "A depilacao laser entrou na minha rotina com acompanhamento certinho. O plano de sessoes foi explicado sem promessa exagerada.",
-    author: "Beatriz M. | MG"
+    author: "Beatriz M.",
+    location: "MG",
+    procedure: "Depilacao laser",
+    imageSrc: clienteBeatrizImage,
+    imageAlt: "Cliente Beatriz apos atendimento de depilacao laser."
   }
 ];
 

@@ -13,7 +13,7 @@ const mobileOpen = ref(false);
         <img :src="logoHalfLife" alt="Half Style Estetica">
       </span>
       <span class="brand-copy">
-        <strong>Half Style</strong>
+        <strong class="brand-wordmark">Half Style</strong>
         <small>Estetica Avancada</small>
       </span>
     </a>

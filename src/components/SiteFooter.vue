@@ -10,7 +10,7 @@ import { logoHalfLife } from "../assets";
           <img :src="logoHalfLife" alt="Half Style Estetica">
         </a>
         <div>
-          <h2>Half Style Estetica</h2>
+          <h2 class="brand-title footer-title">Half Style Estetica</h2>
           <p>Atendimento estetico premium com avaliacao profissional, protocolos seguros e orientacao clara antes de cada procedimento.</p>
         </div>
       </div>

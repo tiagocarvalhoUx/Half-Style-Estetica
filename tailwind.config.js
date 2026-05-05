@@ -11,7 +11,7 @@ export default {
         porcelain: "#f7f1eb"
       },
       fontFamily: {
-        sans: ["Inter", "Arial", "sans-serif"],
+        sans: ["Onest", "Arial", "sans-serif"],
         display: ["Playfair Display", "Georgia", "serif"]
       },
       boxShadow: {

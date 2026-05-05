@@ -25,17 +25,37 @@ onMounted(() => {
       <h2 class="section-title">Prova social com espaco para fotos reais das clientes.</h2>
     </div>
 
-    <div class="mx-auto grid max-w-5xl items-center gap-4 sm:grid-cols-[46px_1fr_46px]">
+    <div class="mx-auto grid max-w-6xl items-center gap-4 sm:grid-cols-[46px_1fr_46px]">
       <button class="hidden h-12 w-12 rounded-lg border border-[#e8ddd7] bg-ivory font-black text-plum sm:block" type="button" aria-label="Depoimento anterior" @click="prevTestimonial">&lt;</button>
-      <article class="luxe-panel grid min-h-[220px] gap-5 p-6 sm:grid-cols-[110px_1fr]">
-        <div class="client-photo" aria-hidden="true"></div>
-        <div>
-          <p class="font-black text-[#8f6732]" aria-label="5 estrelas">*****</p>
-          <blockquote class="mt-2 text-xl font-bold">&ldquo;{{ currentTestimonial.text }}&rdquo;</blockquote>
-          <cite class="mt-4 block not-italic font-extrabold text-[#6f6268]">{{ currentTestimonial.author }}</cite>
+      <article class="testimonial-card luxe-panel">
+        <div class="testimonial-photo">
+          <img :src="currentTestimonial.imageSrc" :alt="currentTestimonial.imageAlt" loading="lazy">
+          <span>{{ currentTestimonial.procedure }}</span>
+        </div>
+        <div class="testimonial-content">
+          <p class="testimonial-stars" aria-label="5 estrelas">*****</p>
+          <blockquote>&ldquo;{{ currentTestimonial.text }}&rdquo;</blockquote>
+          <cite>
+            <strong>{{ currentTestimonial.author }}</strong>
+            <span>{{ currentTestimonial.location }}</span>
+          </cite>
         </div>
       </article>
       <button class="hidden h-12 w-12 rounded-lg border border-[#e8ddd7] bg-ivory font-black text-plum sm:block" type="button" aria-label="Proximo depoimento" @click="nextTestimonial">&gt;</button>
+    </div>
+
+    <div class="mx-auto mt-5 flex max-w-4xl justify-center gap-3" aria-label="Selecionar depoimento">
+      <button
+        v-for="(testimonial, index) in testimonials"
+        :key="testimonial.author"
+        class="testimonial-thumb"
+        :class="{ 'is-active': index === testimonialIndex }"
+        type="button"
+        :aria-label="`Ver depoimento de ${testimonial.author}`"
+        @click="testimonialIndex = index"
+      >
+        <img :src="testimonial.imageSrc" :alt="testimonial.imageAlt" loading="lazy">
+      </button>
     </div>
 
     <div class="mt-9 flex justify-center">
