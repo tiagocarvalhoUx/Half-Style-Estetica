@@ -1,7 +1,9 @@
-const CACHE_NAME = "half-style-cache-v1";
+const CACHE_NAME = "half-style-emerald-cache-v2";
 const APP_SHELL = [
   "/",
   "/manifest.webmanifest",
+  "/favicon.png",
+  "/icons/icon-180.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/og/half-style-og.png"
