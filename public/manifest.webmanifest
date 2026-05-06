@@ -1,12 +1,12 @@
 {
-  "id": "/",
-  "name": "Health Style Estética | Emerald Wellness",
+  "id": "/?source=pwa",
+  "name": "Health Style Est\u00e9tica | Emerald Wellness",
   "short_name": "Health Style",
-  "description": "Rituais personalizados Emerald Wellness que unem ciência, natureza e cuidado para realçar sua melhor versão.",
-  "start_url": "/",
+  "description": "Rituais personalizados Emerald Wellness que unem ci\u00eancia, natureza e cuidado para real\u00e7ar sua melhor vers\u00e3o.",
+  "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "orientation": "portrait-primary",
   "background_color": "#fbf8f2",
   "theme_color": "#063f34",
@@ -41,7 +41,7 @@
   ],
   "shortcuts": [
     {
-      "name": "Agendar experiência",
+      "name": "Agendar experi\u00eancia",
       "short_name": "Agendar",
       "description": "Ir direto para o contato e agendamento.",
       "url": "/#contato",
@@ -50,7 +50,7 @@
     {
       "name": "Ver tratamentos",
       "short_name": "Tratamentos",
-      "description": "Conhecer os tratamentos da Health Style Estética.",
+      "description": "Conhecer os tratamentos da Health Style Est\u00e9tica.",
       "url": "/#procedimentos",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
@@ -61,7 +61,7 @@
       "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Health Style Estética Emerald Wellness"
+      "label": "Health Style Est\u00e9tica Emerald Wellness"
     }
   ]
 }
