@@ -1,5 +1,5 @@
-import logoHalfLife from "./image/logo/logo-Halfe-Life.png";
-import halfStyleFinal from "./image/half_style_final.png";
+import healthStyleFinal from "./image/half_style_final.png";
+import logoHealthStyle from "./image/logo/logo-Halfe-Life.png";
 import emeraldHeroProducts from "./image/esmerald/hero-products.png";
 import emeraldStudioInterior from "./image/esmerald/studio-interior.png";
 import emeraldTreatmentAdvanced from "./image/esmerald/treatment-advanced.png";
@@ -14,6 +14,6 @@ export {
   emeraldTreatmentBody,
   emeraldTreatmentFacial,
   emeraldTreatmentHomecare,
-  halfStyleFinal,
-  logoHalfLife
+  healthStyleFinal,
+  logoHealthStyle
 };

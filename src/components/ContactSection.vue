@@ -25,7 +25,7 @@ function submitForm() {
       <div class="contact-links mt-6 flex flex-wrap gap-3">
         <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">WhatsApp</a>
         <a href="tel:+5500000000000">Ligar</a>
-        <a href="mailto:contato@halfstyle.com.br">Email</a>
+        <a href="mailto:contato@healthstyle.com.br">Email</a>
       </div>
     </div>
 

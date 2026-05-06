@@ -1,16 +1,16 @@
 <script setup>
-import { logoHalfLife } from "../assets";
+import { logoHealthStyle } from "../assets";
 </script>
 
 <template>
   <footer class="footer px-5 py-12 lg:px-20 lg:py-16">
     <div class="footer-inner mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr_0.7fr]">
       <div class="footer-brand">
-        <a class="footer-logo" href="#top" aria-label="Half Style Estética">
-          <img :src="logoHalfLife" alt="Half Style Estética">
+        <a class="footer-logo" href="#top" aria-label="Health Style Estética">
+          <img :src="logoHealthStyle" alt="Health Style Estética">
         </a>
         <div>
-          <h2 class="brand-title footer-title">Half Style Estética</h2>
+          <h2 class="brand-title footer-title">Health Style Estética</h2>
           <p>Atendimento estético premium com avaliação profissional, protocolos seguros e orientação clara antes de cada procedimento.</p>
         </div>
       </div>
@@ -21,7 +21,7 @@ import { logoHalfLife } from "../assets";
         <div class="footer-contact">
           <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">WhatsApp</a>
           <a href="tel:+5500000000000">Telefone</a>
-          <a href="mailto:contato@halfstyle.com.br">Email</a>
+          <a href="mailto:contato@healthstyle.com.br">Email</a>
         </div>
       </div>
 

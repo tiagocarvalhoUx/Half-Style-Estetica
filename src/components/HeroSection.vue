@@ -80,7 +80,7 @@ onUnmounted(() => {
       @click="playFlip"
       @touchstart.passive="playFlip"
     >
-      <img :src="emeraldHeroProducts" alt="Linha Emerald Wellness com sérum e máscara da Half Style Estética">
+      <img :src="emeraldHeroProducts" alt="Linha Emerald Wellness com sérum e máscara da Health Style Estética">
     </div>
   </section>
 </template>

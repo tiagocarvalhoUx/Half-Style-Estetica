@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { logoHalfLife } from "../assets";
+import { logoHealthStyle } from "../assets";
 
 const mobileOpen = ref(false);
 
@@ -16,12 +16,12 @@ const navItems = [
 
 <template>
   <header class="site-header">
-    <a class="brand-lockup emerald-brand" href="#top" aria-label="Half Style Estética">
+    <a class="brand-lockup emerald-brand" href="#top" aria-label="Health Style Estética">
       <span class="emerald-brand-seal" aria-hidden="true">
-        <img :src="logoHalfLife" alt="">
+        <img :src="logoHealthStyle" alt="">
       </span>
       <span class="emerald-brand-copy">
-        <strong>Half Style</strong>
+        <strong>Health Style</strong>
         <small>Estética</small>
       </span>
       <span class="emerald-brand-underline" aria-hidden="true"></span>

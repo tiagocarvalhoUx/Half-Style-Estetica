@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "Half Style Estética | Emerald Wellness",
-  "short_name": "Half Style",
+  "name": "Health Style Estética | Emerald Wellness",
+  "short_name": "Health Style",
   "description": "Rituais personalizados Emerald Wellness que unem ciência, natureza e cuidado para realçar sua melhor versão.",
   "start_url": "/",
   "scope": "/",
@@ -50,7 +50,7 @@
     {
       "name": "Ver tratamentos",
       "short_name": "Tratamentos",
-      "description": "Conhecer os tratamentos da Half Style Estética.",
+      "description": "Conhecer os tratamentos da Health Style Estética.",
       "url": "/#procedimentos",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
@@ -61,7 +61,7 @@
       "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Half Style Estética Emerald Wellness"
+      "label": "Health Style Estética Emerald Wellness"
     }
   ]
 }

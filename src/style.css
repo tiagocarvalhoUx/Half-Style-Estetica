@@ -1047,9 +1047,9 @@ body {
 }
 
 .emerald-brand-copy strong {
-  font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+  font-size: clamp(1.2rem, 1.55vw, 1.62rem);
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
 }
 
 .emerald-brand-copy small {
@@ -1776,8 +1776,8 @@ body {
   }
 
   .emerald-brand-copy strong {
-    font-size: 1.18rem;
-    letter-spacing: 0.12em;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
   }
 
   .emerald-brand-copy small {
@@ -1816,7 +1816,8 @@ body {
   }
 
   .emerald-brand-copy strong {
-    font-size: 1rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
   }
 
   .emerald-brand-copy small {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "half-style-emerald-cache-v2";
+const CACHE_NAME = "health-style-emerald-cache-v3";
 const APP_SHELL = [
   "/",
   "/manifest.webmanifest",
